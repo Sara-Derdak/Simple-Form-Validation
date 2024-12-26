@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex2</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <style>
+        #form{
+            background: linear-gradient(to left, #1949c2, #0f3443);
+            color: white;
+            font-size: 24px;
+            width: auto;
+            border-radius: 10px;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5); 
+        }
+        .input_text {
+            border: 2px solid #007bff;
+            background-color: #f8f9fa;
+            padding: 5px 8px;
+            border-radius: 5px;
+        }
+        label
+        {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        td{
+            height: 70px;
+            /* text-align: center; */
+        }
+        td input
+        {text-align: center;}
+        th{
+            text-decoration: underline;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class=" d-flex justify-content-center container p-5">
+    <form action="page.php" method="post" id="form" class="p-3">
+            <table class=" d-flex justify-content-center">
+                <tr>
+                    <th colspan="2">Formulaire : </th>
+                </tr>
+                <tr>
+                    <td><label class="form-check-label">nom :</label></td>
+                    <td><input type="text" name="nom" id="nom"  class="input_text"></td>
+                    <td><span   id="errornom" style="text-align: center;"></span></td>
+                </tr>
+                <!-- <tr><td colspan="2"  id="errornom" style="text-align: center;"></td></tr> -->
+                <tr>
+                    <td><label class="form-check-label">Residence : </label></td>
+                    <td><input type="text" name="residence" id="residence"  class="input_text"></td>
+                    <td><span  id="errorresidence" style="text-align: center;"></span></td>
+                </tr>
+                <!-- <tr><td colspan="2" id="errorresidence" style="text-align: center;"></td></tr> -->
+                <tr>
+                    <td><label class="form-check-label">email : </label></td>
+                    <td><input type="text" name="email" id="email"  class="input_text"></td>
+                    <td><span  id="erroremail" style="text-align: center;"></span></td>
+                </tr>
+                <!-- <tr><td colspan="2" id="erroremail" style="text-align: center;"></td></tr> -->
+                <tr>
+                    <td><label class="form-check-label">age : </label></td>
+                    <td><input type="text" name="age" id="age"  class="input_text"></td>
+                    <td><span   id="errorage" style="text-align: center;"></span></td>
+                </tr>
+                <!-- <tr><td colspan="2"  id="errorage" style="text-align: center;"></td></tr> -->
+                <tr>
+                    <td><label class="form-check-label">sexe : </label></td>
+                    <td style="text-align: center;"><input type="radio" name="sexe" class="form-check-input" id="M" value="M"> M
+                        <input type="radio" name="sexe" class="form-check-input" id="F" value="F"> F
+                    </td>    
+                    <td><span   id="errorsexe" style="text-align: center;"></span></td>
+                </tr>
+                <!-- <tr><td colspan="2"  id="errorsexe" style="text-align: center;"></td></tr> -->
+                <tr>
+                    <td><label class="form-check-label">Langage parlee : </label></td>
+                    <td style="text-align: center;"><input type="checkbox" name="langage" id="FR" value="FR" class="form-check-input"> FR
+                        <input type="checkbox" name="langage" id="AR" value="AR" class="form-check-input"> AR
+                        <input type="checkbox" name="langage" id="ENG" value="ENG" class="form-check-input"> ENG
+                    </td>
+                    <td ><span  id="errorlangage" style="text-align: center;"></span></td>
+                </tr>
+                <!-- <tr><td colspan="2" id="errorlangage" style="text-align: center;"></td></tr> -->
+                <tr>
+                    <td><label class="form-check-label">Profession : </label></td>
+                    <td>
+                        <select name="profession" id="profession" class="form-select input_text">
+                            <option value="" class="fs-4" disabled selected>Selectionner une option</option>
+                            <option value="option1">option1</option>
+                            <option value="option2">option2</option>
+                            <option value="option3">option3</option>
+                            <option value="option4">option4</option>
+                        </select>
+                    </td>
+                    <td  ><span  id="errorprofession" style="text-align: center;"></span></td>
+                </tr>
+                <!-- <tr><td colspan="2"  id="errorprofession" style="text-align: center;"></td></tr> -->
+                <tr>
+                    <td><label class="form-check-label">Formulaire : </label></td>
+                    <td><input type="submit" name="envoyer" id="envoyer" value="envoyer"  class="btn btn-primary m-2 p-2" style="font-size: 20px; width :130px;">
+                        <input type="reset" name="annuler" id="annuler" value="annuler"  class="btn btn-danger m-2 p-2" style="font-size: 20px; width :130px;">
+                    </td>
+                </tr>
+            </table>
+    </form>
+</div>
+
+    <script>
+        function valider(event)
+        {
+            var isvalide=true;
+            var nom = document.getElementById("nom").value;
+            var residence = document.getElementById("residence").value;
+            var email = document.getElementById("email").value;
+            var age = document.getElementById("age").value;
+            var sexe = document.querySelector('input[name="sexe"]:checked');
+            var langage = document.querySelectorAll('input[name="langage"]:checked');
+            var profession = document.getElementById("profession").value;
+
+            console.log(langage);   
+            // console.log(sexe); 
+            // console.log(profession);
+            // for (const x of langage) {
+            //     console.log(x.value);
+            // }
+
+            // Validation du nom :
+            if(nom.trim()=="")
+            {
+                document.getElementById("errornom").classList.add("alert","alert-danger","m-5")
+                document.getElementById("errornom").textContent="Nom Obligatoire !";
+                isvalide=false;
+            }
+            else
+            {
+                document.getElementById("errornom").removeAttribute("class")
+                document.getElementById("errornom").textContent="";
+            }
+
+            // Validation du residence :
+            if(residence.trim()=="")
+            {
+                document.getElementById("errorresidence").classList.add("alert","alert-danger","m-5")
+                document.getElementById("errorresidence").textContent="Residence Obligatoire !";
+                isvalide=false;
+            }
+            else
+            {
+                document.getElementById("errorresidence").removeAttribute("class")
+                document.getElementById("errorresidence").textContent="";
+            }
+
+            // Validation d'un email :
+            if(email.trim()=="")
+            {
+                document.getElementById("erroremail").classList.add("alert","alert-danger" ,"m-5")
+                document.getElementById("erroremail").textContent="Email Obligatoire !";
+                isvalide=false;
+            }
+            else if ( /^\w+@\w+\.\w+$/.test(email)!=true){
+                document.getElementById("erroremail").classList.add("alert","alert-danger" ,"m-5")
+                document.getElementById("erroremail").textContent="Email Invalide !";
+                isvalide=false;
+            }
+            else
+            {
+                document.getElementById("erroremail").removeAttribute("class")
+                document.getElementById("erroremail").textContent="";
+            }
+
+            // Validation d'age :
+            if(age.trim()=="")
+            {
+                document.getElementById("errorage").classList.add("alert","alert-danger" ,"m-5")
+                document.getElementById("errorage").textContent="Age Obligatoire !";
+                isvalide=false;
+            }
+            else if (!Number.isInteger(Number(age)))
+            {
+                document.getElementById("errorage").classList.add("alert","alert-danger" ,"m-5")
+                document.getElementById("errorage").textContent="Age Invalide !";
+                isvalide=false;
+            }
+            else
+            {
+                document.getElementById("errorage").removeAttribute("class")
+                document.getElementById("errorage").textContent="";
+            }
+
+            // Validation d'un sexe :
+            if (sexe==null) {
+            document.getElementById("errorsexe").classList.add("alert", "alert-danger" ,"m-5");
+            document.getElementById("errorsexe").textContent = "Sexe Obligatoire !";
+            isvalide = false;
+            } 
+            else 
+            {
+                document.getElementById("errorsexe").removeAttribute("class")
+                document.getElementById("errorsexe").textContent = "";
+            }
+
+            // Validation des langages 
+            if (langage.length === 0) {
+                document.getElementById("errorlangage").classList.add("alert", "alert-danger" ,"m-5");
+                document.getElementById("errorlangage").textContent = "Langage Parlé Obligatoire !";
+                isvalide = false;
+            } 
+            else 
+            {
+                document.getElementById("errorlangage").removeAttribute("class")
+                document.getElementById("errorlangage").textContent = "";
+            }
+
+            // Validation de profession :
+            if (profession.trim() == "") 
+            {
+                document.getElementById("errorprofession").classList.add("alert", "alert-danger" ,"m-5");
+                document.getElementById("errorprofession").textContent = "Profession Obligatoire !";
+                isvalide = false;
+            } 
+            else 
+            {
+                document.getElementById("errorprofession").removeAttribute("class")
+                document.getElementById("errorprofession").textContent = "";
+                document.getElementById("errorprofession").textContent = "";
+            }
+            
+            if(isvalide==false)
+            {
+                event.preventDefault();
+            }
+
+        }
+
+        document.querySelector("form").addEventListener("submit",valider)
+    </script>
+</body>
+</html>
