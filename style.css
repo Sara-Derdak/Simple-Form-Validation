@@ -1,0 +1,28 @@
+#form{
+    background: linear-gradient(to left, #1949c2, #0f3443);
+    color: white;
+    font-size: 22px;
+    width: auto;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5); 
+}
+.input_text {
+    border: 2px solid #007bff;
+    background-color: #f8f9fa;
+    padding: 5px 8px;
+    border-radius: 5px;
+}
+label
+{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+td{
+    height: 70px;
+    /* text-align: center; */
+}
+td input
+{text-align: center;}
+th{
+    text-decoration: underline;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
