@@ -121,7 +121,18 @@ function valider(event)
             {
                 event.preventDefault();
             }
+            else
+            {
+                alert("Les informatios sont valide")
+            }
+
 
         }
 
+
+function stop (event)
+{
+    event.preventDefault();
+}        
         document.querySelector("form").addEventListener("submit",valider)
+        document.querySelector("form").addEventListener("submit",stop)
